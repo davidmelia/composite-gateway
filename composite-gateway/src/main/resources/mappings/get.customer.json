@@ -1,0 +1,16 @@
+{
+  "id" : "7a88cb99-9e02-484a-aaee-d55f39adea46",
+  "request" : {
+    "url" : "/customer-service/api/1/customers/1234",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"name\":\"David Melia\"}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "7a88cb99-9e02-484a-aaee-d55f39adea46"
+}
