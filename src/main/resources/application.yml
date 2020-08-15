@@ -1,0 +1,16 @@
+wiremock:
+  server:
+    port: 9090
+    stubs: classpath:/mappings
+#spring:
+#  cloud: 
+#    gateway: 
+#      routes:
+#      - id: dave
+#        uri: http://localhost:9090/api/1/customers/1234
+#        predicates:
+#        - Path=/customers/          
+#      - id: baeldung_route
+#        uri: http://baeldung.com
+#        predicates:
+#        - Path=/baeldung/
