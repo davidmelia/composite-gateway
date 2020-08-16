@@ -19,8 +19,9 @@ public class CompositeController {
   @GetMapping(value = "/customer-addresses/{customerId}")
   public Mono<CustomerAddressesViewModel> proxyAddresses(@Parameter(hidden = true) ProxyExchange<Customer> customerServiceProxy,
       @Parameter(hidden = true) ProxyExchange<AddressSearchResults> addressServiceProxy, @PathVariable String customerId, @RequestParam("query") String postcode, UriComponentsBuilder builder) {
-    Mono<ResponseEntity<AddressSearchResults>> addressSearchResults = addressServiceProxy.uri(builder.path("/api/1/addresses").queryParam("query", postcode).build().toUriString()).get();
-    Mono<ResponseEntity<Customer>> customer = customerServiceProxy.uri(builder.path("api/1/customers/{customerId}").buildAndExpand(customerId).toUriString()).get();
+    Mono<ResponseEntity<AddressSearchResults>> addressSearchResults =
+        addressServiceProxy.uri(builder.cloneBuilder().path("/api/1/addresses").queryParam("query", postcode).build().toUriString()).get();
+    Mono<ResponseEntity<Customer>> customer = customerServiceProxy.uri(builder.cloneBuilder().path("/api/1/customers/{customerId}").buildAndExpand(customerId).toUriString()).get();
     return addressSearchResults.zipWith(customer).map(tuple -> new CustomerAddressesViewModel(tuple.getT2(), tuple.getT1()));
   }
 

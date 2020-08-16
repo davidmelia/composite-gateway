@@ -24,4 +24,8 @@ public class CustomerAddressesViewModel {
     this.addresses = addresses.getBody().getAddressSearchResults();
   }
 
+  public CustomerAddressesViewModel(ResponseEntity<Customer> customer) {
+    this.name = customer.getBody().getName();
+    this.addresses = null;
+  }
 }
