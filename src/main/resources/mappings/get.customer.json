@@ -6,7 +6,7 @@
   },
   "response" : {
     "status" : 200,
-    "body" : "{\"name\":\"David Melia\"}",
+    "body" : "{\"name\":\"James Bond\"}",
     "headers" : {
       "Content-Type" : "application/json"
     },

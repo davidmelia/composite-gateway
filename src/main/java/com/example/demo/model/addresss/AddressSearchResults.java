@@ -1,4 +1,4 @@
-package com.example.demo.addressservice;
+package com.example.demo.model.addresss;
 
 import java.util.List;
 import lombok.Value;

@@ -1,8 +1,8 @@
-package com.example.demo;
+package com.example.demo.controller.composite.viewmodel;
 
-import com.example.demo.addressservice.AddressSearchResult;
-import com.example.demo.addressservice.AddressSearchResults;
-import com.example.demo.customerservice.Customer;
+import com.example.demo.model.addresss.AddressSearchResult;
+import com.example.demo.model.addresss.AddressSearchResults;
+import com.example.demo.model.customer.Customer;
 import java.util.List;
 import lombok.Value;
 import org.springframework.http.ResponseEntity;

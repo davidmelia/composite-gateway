@@ -12,25 +12,18 @@ import org.springframework.context.annotation.Bean;
 @AutoConfigureWireMock
 public class CompositeGatewayApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CompositeGatewayApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(CompositeGatewayApplication.class, args);
+  }
 
-	@Bean
-	public RouteLocator myRoutes(RouteLocatorBuilder builder, @Value("${wiremock.server.port}")int wiremockPort) {
-	    return builder.routes()
-	        .route(p -> p
-	            .path("/get")
-	            .filters(f -> f.addRequestHeader("Hello", "World"))
-	            .uri("http://httpbin.org:80"))
-	        .route(p -> p
-		            .path("/api/1/addresses")
-		            .filters(f -> f.rewritePath("/api/1/addresses", "/address-lookup-service/api/1/addresses"))           
-		            .uri("http://localhost:9090"))
-	        .route(p -> p
-		            .path("/api/1/customers/*")
-		            .filters(f -> f.rewritePath("/api/1/customers/", "/customer-service/api/1/customers/"))           
-		            .uri("http://localhost:9090"))	        
-	        .build();
-	}
+  @Bean
+  public RouteLocator myRoutes(RouteLocatorBuilder builder, @Value("${wiremock.server.port}") int wiremockPort) {
+    // .modifyResponseBody(AddressSearchResults.class, AddressSearchResultsViewModel.class, (t, u) ->
+    // Mono.just(new AddressSearchResultsViewModel(u))
+    return builder.routes().route(p -> p.path("/get").filters(f -> f.addRequestHeader("Hello", "World")).uri("http://httpbin.org:80"))
+        .route(p -> p.path("/api/1/addresses").filters(f -> f.rewritePath("/api/1/addresses", "/address-lookup-service/api/1/addresses")
+
+        ).uri("http://localhost:9090")).route(p -> p.path("/api/1/customers/*").filters(f -> f.rewritePath("/api/1/customers/", "/customer-service/api/1/customers/")).uri("http://localhost:9090"))
+        .build();
+  }
 }

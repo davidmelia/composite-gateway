@@ -1,4 +1,4 @@
-package com.example.demo.customerservice;
+package com.example.demo.model.customer;
 
 import lombok.Value;
 
