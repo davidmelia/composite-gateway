@@ -1,0 +1,11 @@
+{
+  "id" : "7a88cb99-9e02-484a-aaee-d55f39adea47",
+  "request" : {
+    "url" : "/address-lookup-service/api/1/addresses?query=DODGY",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 500
+  },
+  "uuid" : "7a88cb99-9e02-484a-aaee-d55f39adea47"
+}

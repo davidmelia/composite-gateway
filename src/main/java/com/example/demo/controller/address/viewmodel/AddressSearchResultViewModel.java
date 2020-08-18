@@ -14,4 +14,10 @@ public class AddressSearchResultViewModel {
     this.text = addressSearchResult.getText();
     this.description = addressSearchResult.getDescription();
   }
+
+  public AddressSearchResultViewModel() {
+    this.id = null;
+    this.text = null;
+    this.description = null;
+  }
 }

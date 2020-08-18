@@ -11,4 +11,8 @@ public class CustomerViewModel {
   public CustomerViewModel(Customer customer) {
     this.name = customer.getName();
   }
+
+  public CustomerViewModel() {
+    this.name = null;
+  }
 }

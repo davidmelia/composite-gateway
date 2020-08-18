@@ -2,6 +2,23 @@ wiremock:
   server:
     port: 9090
     stubs: classpath:/mappings
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+    include-binding-errors: always
+#spring:
+#  cloud:
+#    gateway:
+#      httpclient:
+#        ssl:
+#          use-insecure-trust-manager: true
 #spring:
 #  cloud: 
 #    gateway: 
@@ -14,3 +31,4 @@ wiremock:
 #        uri: http://baeldung.com
 #        predicates:
 #        - Path=/baeldung/
+
