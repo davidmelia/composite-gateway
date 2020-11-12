@@ -13,6 +13,12 @@ server:
       enabled: false
     include-message: always
     include-binding-errors: always
+  ssl:
+     key-store-type: PKCS12
+     key-store: classpath:compositegateway.p12
+     key-store-password: password
+     key-alias: compositegateway
+
 #spring:
 #  cloud:
 #    gateway:
@@ -31,4 +37,3 @@ server:
 #        uri: http://baeldung.com
 #        predicates:
 #        - Path=/baeldung/
-
